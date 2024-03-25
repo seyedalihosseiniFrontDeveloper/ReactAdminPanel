@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
   Link,
+  redirect,
   useNavigation,
   useRouteError,
   useSubmit,
@@ -95,7 +96,7 @@ const Login = () => {
               {routeErrors && (
                 <div className="alert alert-danger text-danger p-2 mt-3">
                   {routeErrors.response?.data.map((error, index) => (
-                    <p key={index} className="mb-0">
+                    <p className="mb-0" key={index}>
                       {t(`login.validation.${error.code}`)}
                     </p>
                   ))}
@@ -112,8 +113,10 @@ export async function loginAction({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const response = await httpService.post("/Users/login", data);
-  console.log(response, "response");
-  //return response.status === 200;
+  if (response.status === 200) {
+    localStorage.setItem("token", response?.data.token);
+    return redirect("/");
+  }
 }
 
 export default Login;
