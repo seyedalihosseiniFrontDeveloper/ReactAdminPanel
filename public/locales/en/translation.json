@@ -22,7 +22,7 @@
     }
   },
   "login": {
-    "title": "Online Education Platform",
+    "title": "Free Admin Panel",
     "introMessage": "To log in, you need to use your mobile phone and password",
     "signingin": "Signing in ...",
     "signin": "Sign in",
@@ -38,7 +38,7 @@
   },
   "mainLayout": {
     "sidebar": {
-      "subtitle": "Online Education Platform",
+      "subtitle": "Free Admin Panel",
       "courseManagement": "Course Management",
       "allCourses": "All Courses",
       "coursesCategory": "Courses Category",
